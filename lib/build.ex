@@ -92,7 +92,7 @@ defmodule FAE do
         String.replace_prefix(
           line,
           "* ",
-          "* #{pad(stargazers_count)}:star: #{pad(forks_count)}:fork_and_knife: **[#{language}]** "
+          "* #{pad(stargazers_count)}⭐ #{pad(forks_count)}🍴 **[#{language}]** "
         )
         |> IO.inspect()
     end
