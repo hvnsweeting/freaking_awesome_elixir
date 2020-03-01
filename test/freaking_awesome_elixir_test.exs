@@ -10,16 +10,16 @@ defmodule FreakingAwesomeElixirTest do
 
   @url3 "* [Elixir Github Wiki](https://github.com/elixir-lang/elixir/wiki) - The project's wiki, containing much useful information."
   test "get URL from Markdown URL" do
-    assert Build.markdown_to_url(@url1) == "https://github.com/processone/fast_yaml"
-    assert Build.markdown_to_url(@url2) == "https://github.com/mkaput/elixir-bimap"
-    assert Build.markdown_to_url(@url3) == "https://github.com/elixir-lang/elixir/wiki"
+    assert FAE.markdown_to_url(@url1) == "https://github.com/processone/fast_yaml"
+    assert FAE.markdown_to_url(@url2) == "https://github.com/mkaput/elixir-bimap"
+    assert FAE.markdown_to_url(@url3) == "https://github.com/elixir-lang/elixir/wiki"
   end
 
   test "GitHub URL to GitHub API" do
-    assert Build.url_to_api("https://github.com/mkaput/elixir-bimap") ==
+    assert FAE.url_to_api("https://github.com/mkaput/elixir-bimap") ==
              "https://api.github.com/repos/mkaput/elixir-bimap"
 
-    assert Build.url_to_api("https://github.com/elixir-lang/elixir/wiki") ==
+    assert FAE.url_to_api("https://github.com/elixir-lang/elixir/wiki") ==
              "https://api.github.com/repos/elixir-lang/elixir"
   end
 end

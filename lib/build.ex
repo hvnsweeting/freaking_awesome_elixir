@@ -1,4 +1,4 @@
-defmodule Build do
+defmodule FAE do
   def download_source(outfile \\ "README.md.orig") do
     # Application.ensure_all_started(:inets)
     # Application.ensure_all_started(:ssl)

@@ -9,6 +9,6 @@ defmodule Mix.Tasks.Fae do
   def run(_args) do
     Application.ensure_all_started(:inets)
     Application.ensure_all_started(:ssl)
-    Build.main()
+    FAE.main()
   end
 end
