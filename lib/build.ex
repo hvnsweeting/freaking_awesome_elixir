@@ -129,9 +129,11 @@ defmodule FAE do
       |> Enum.join("\n")
 
     header =
-      "# Freaking Awesome Elixir
+      "# Freaking Awesome Elixir ![Elixir CI](https://github.com/hvnsweeting/freaking_awesome_elixir/workflows/Elixir%20CI/badge.svg)
 
-A curated list with Github stars and forks stats based on awesome [h4cc/awesome-elixir](https://github.com/h4cc/awesome-elixir)"
+A curated list with Github stars and forks stats based on awesome [h4cc/awesome-elixir](https://github.com/h4cc/awesome-elixir).
+
+To contribute new package to the list, please send a request to [h4cc/awesome-elixir](https://github.com/h4cc/awesome-elixir)"
 
     File.write("README.md", header <> "\n" <> out)
   end
