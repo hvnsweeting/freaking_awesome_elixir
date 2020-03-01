@@ -1,5 +1,7 @@
 # Freaking Awesome Elixir ![Elixir CI](https://github.com/hvnsweeting/freaking_awesome_elixir/workflows/Elixir%20CI/badge.svg)
 
+Data updated at 2020-03-01T07:56:27.357047Z
+
 A curated list with Github stars and forks stats based on awesome [h4cc/awesome-elixir](https://github.com/h4cc/awesome-elixir).
 
 To contribute new package to the list, please send a request to [h4cc/awesome-elixir](https://github.com/h4cc/awesome-elixir)
@@ -143,7 +145,7 @@ There are [other sites with curated lists of elixir packages](#other-awesome-lis
 * &ensp;&ensp;&ensp;83⭐ &ensp;&ensp;&ensp;17🍴 **[Elixir]** [ecto_state_machine](https://github.com/asiniy/ecto_state_machine) - Finite state machine pattern implemented on Elixir and  adopted for Ecto.
 * &ensp;&ensp;&ensp;12⭐ &ensp;&ensp;&ensp;&ensp;0🍴 **[Elixir]** [elistrix](https://github.com/tobz/elistrix) - A latency / fault tolerance library to help isolate your applications from an uncertain world of slow or failed services.
 * &ensp;&ensp;&ensp;61⭐ &ensp;&ensp;&ensp;&ensp;3🍴 **[Elixir]** [emel](https://github.com/mrdimosthenis/emel) - A simple and functional machine learning library written in elixir.
-* &ensp;&ensp;124⭐ &ensp;&ensp;&ensp;30🍴 **[Erlang]** [erlang-algorithms](https://github.com/aggelgian/erlang-algorithms) - Implementations of popular data structures and algorithms.
+* &ensp;&ensp;123⭐ &ensp;&ensp;&ensp;30🍴 **[Erlang]** [erlang-algorithms](https://github.com/aggelgian/erlang-algorithms) - Implementations of popular data structures and algorithms.
 * &ensp;&ensp;206⭐ &ensp;&ensp;&ensp;14🍴 **[Elixir]** [exconstructor](https://github.com/appcues/exconstructor) - An Elixir library for generating struct constructors that handle external data with ease.
 * &ensp;&ensp;&ensp;&ensp;7⭐ &ensp;&ensp;&ensp;&ensp;3🍴 **[Elixir]** [exfsm](https://github.com/awetzel/exfsm) - Simple elixir library to define a static FSM.
 * &ensp;&ensp;&ensp;&ensp;1⭐ &ensp;&ensp;&ensp;&ensp;1🍴 **[Elixir]** [exkad](https://github.com/rozap/exkad) - A [kademlia](https://en.wikipedia.org/wiki/Kademlia) implementation in Elixir.
@@ -201,7 +203,7 @@ There are [other sites with curated lists of elixir packages](#other-awesome-lis
 
 ## Applications
 *Standalone applications.*
-* &ensp;&ensp;147⭐ &ensp;&ensp;&ensp;38🍴 **[Erlang]** [bpe](https://github.com/spawnproc/bpe) - Business Process Engine in Erlang. ([Doc](https://bpe.n2o.space)).
+* &ensp;&ensp;146⭐ &ensp;&ensp;&ensp;38🍴 **[Erlang]** [bpe](https://github.com/spawnproc/bpe) - Business Process Engine in Erlang. ([Doc](https://bpe.n2o.space)).
 * &ensp;&ensp;&ensp;90⭐ &ensp;&ensp;&ensp;16🍴 **[Elixir]** [CaptainFact](https://github.com/CaptainFact/captain-fact-api) - A collaborative, real-time video fact-checking platform. ([Docs](https://captainfact.io/)).
 * &ensp;&ensp;107⭐ &ensp;&ensp;&ensp;&ensp;9🍴 **[JavaScript]** [Consolex](https://github.com/sivsushruth/consolex) - Consolex is a tool that allows you to attach a web based console to any mix project.
 * &ensp;&ensp;&ensp;40⭐ &ensp;&ensp;&ensp;&ensp;5🍴 **[Elixir]** [dragonfly_server](https://github.com/cloud8421/dragonfly-server) - Elixir app to serve Dragonfly images.
@@ -399,7 +401,7 @@ There are [other sites with curated lists of elixir packages](#other-awesome-lis
 * &ensp;&ensp;&ensp;38⭐ &ensp;&ensp;&ensp;&ensp;3🍴 **[Elixir]** [Kubex](https://github.com/ingerslevio/kubex) - Kubernetes client and integration for Elixir, written in pure Elixir.
 * &ensp;&ensp;&ensp;&ensp;1⭐ &ensp;&ensp;&ensp;&ensp;1🍴 **[Elixir]** [Leaseweb](https://github.com/Ahamtech/elixir-leaseweb) - Elixir Wrapper for Leaseweb infrastructure.
 * &ensp;1026⭐ &ensp;&ensp;115🍴 **[Elixir]** [libcluster](https://github.com/bitwalker/libcluster) - Automatic cluster formation/healing for Elixir applications.([Docs](https://hexdocs.pm/libcluster/readme.html)).
-* &ensp;&ensp;&ensp;52⭐ &ensp;&ensp;&ensp;&ensp;8🍴 **[Erlang]** [nodefinder](https://github.com/okeuday/nodefinder) - Strategies for automatic node discovery in Erlang.
+* &ensp;&ensp;&ensp;51⭐ &ensp;&ensp;&ensp;&ensp;8🍴 **[Erlang]** [nodefinder](https://github.com/okeuday/nodefinder) - Strategies for automatic node discovery in Erlang.
 * &ensp;&ensp;&ensp;66⭐ &ensp;&ensp;&ensp;&ensp;2🍴 **[Elixir]** [nomad](https://github.com/sashaafm/nomad) - Create cloud portable Elixir and Phoenix apps. Write once, use everywhere!
 * &ensp;&ensp;&ensp;89⭐ &ensp;&ensp;&ensp;21🍴 **[Erlang]** [sidejob](https://github.com/basho/sidejob) - Parallel worker and capacity limiting library for Erlang.
 * &ensp;&ensp;&ensp;71⭐ &ensp;&ensp;&ensp;&ensp;6🍴 **[Elixir]** [sidetask](https://github.com/PSPDFKit-labs/sidetask) - SideTask is an alternative to Task.Supervisor using Basho's sidejob library with parallelism and capacity limiting.
@@ -508,14 +510,14 @@ There are [other sites with curated lists of elixir packages](#other-awesome-lis
 * &ensp;&ensp;145⭐ &ensp;&ensp;&ensp;12🍴 **[Elixir]** [dbg](https://github.com/fishcakez/dbg) - Distributed tracing for Elixir.
 * &ensp;&ensp;318⭐ &ensp;&ensp;&ensp;65🍴 **[Perl]** [eflame](https://github.com/proger/eflame) - Flame Graph profiler for Erlang.
 * &ensp;&ensp;&ensp;16⭐ &ensp;&ensp;&ensp;&ensp;3🍴 **[Elixir]** [eh](https://github.com/Frost/eh) - A tool to look up Elixir documentation from the command line.
-* &ensp;&ensp;442⭐ &ensp;&ensp;137🍴 **[Erlang]** [eper](https://github.com/massemanet/eper) - Erlang performance and debugging tools.
+* &ensp;&ensp;441⭐ &ensp;&ensp;137🍴 **[Erlang]** [eper](https://github.com/massemanet/eper) - Erlang performance and debugging tools.
 * &ensp;&ensp;&ensp;&ensp;5⭐ &ensp;&ensp;&ensp;&ensp;0🍴 **[Elixir]** [ether](https://github.com/maarek/ether) - Ether provides functionality to hook Elixir into the Erlang debugger.
 * &ensp;&ensp;365⭐ &ensp;&ensp;&ensp;&ensp;9🍴 **[Elixir]** [ex_debug_toolbar](https://github.com/kagux/ex_debug_toolbar) - A toolbar for Phoenix projects to interactively debug code and display useful information about requests: logs, timelines, database queries etc.
-* &ensp;&ensp;&ensp;91⭐ &ensp;&ensp;&ensp;&ensp;5🍴 **[Elixir]** [exrun](https://github.com/liveforeverx/exrun) - Distributed tracing for Elixir with rate limiting and simple macro-based interface.
+* &ensp;&ensp;&ensp;92⭐ &ensp;&ensp;&ensp;&ensp;5🍴 **[Elixir]** [exrun](https://github.com/liveforeverx/exrun) - Distributed tracing for Elixir with rate limiting and simple macro-based interface.
 * &ensp;&ensp;&ensp;27⭐ &ensp;&ensp;&ensp;&ensp;4🍴 **[Elixir]** [git_hooks](https://github.com/qgadrian/elixir_git_hooks) - Add git hooks to Elixir projects.
-* &ensp;&ensp;891⭐ &ensp;&ensp;&ensp;53🍴 **[Erlang]** [observer_cli](https://github.com/zhongwencool/observer_cli) - Visualize Elixir & Erlang nodes on the command line, it aims to helpe developers debug production systems.
+* &ensp;&ensp;890⭐ &ensp;&ensp;&ensp;53🍴 **[Erlang]** [observer_cli](https://github.com/zhongwencool/observer_cli) - Visualize Elixir & Erlang nodes on the command line, it aims to helpe developers debug production systems.
 * &ensp;&ensp;&ensp;70⭐ &ensp;&ensp;&ensp;14🍴 **[Elixir]** [quaff](https://github.com/qhool/quaff) - The Debug module provides a simple helper interface for running Elixir code in the erlang graphical debugger.
-* &ensp;&ensp;&ensp;81⭐ &ensp;&ensp;&ensp;&ensp;4🍴 **[Elixir]** [rexbug](https://github.com/nietaki/rexbug) - An Elixir wrapper for the `redbug` production-friendly Erlang tracing debugger.
+* &ensp;&ensp;&ensp;82⭐ &ensp;&ensp;&ensp;&ensp;4🍴 **[Elixir]** [rexbug](https://github.com/nietaki/rexbug) - An Elixir wrapper for the `redbug` production-friendly Erlang tracing debugger.
 * &ensp;&ensp;974⭐ &ensp;&ensp;&ensp;40🍴 **[CSS]** [visualixir](https://github.com/koudelka/visualixir) - A process visualizer for remote BEAM nodes.
 
 ## Deployment
@@ -803,7 +805,7 @@ There are [other sites with curated lists of elixir packages](#other-awesome-lis
 ## GUI
 *Libraries for writing Graphical User Interfaces.*
 
-* &ensp;1407⭐ &ensp;&ensp;101🍴 **[Elixir]** [scenic](https://github.com/boydm/scenic) - Portable 2D UI framework.
+* &ensp;1408⭐ &ensp;&ensp;101🍴 **[Elixir]** [scenic](https://github.com/boydm/scenic) - Portable 2D UI framework.
 
 ## Hardware
 *Hardware related things like I/O interfaces and such.*
@@ -815,7 +817,7 @@ There are [other sites with curated lists of elixir packages](#other-awesome-lis
 *Libraries and implementations working with HTML (for xml tools please go to the [XML](#xml) section).*
 
 * &ensp;&ensp;&ensp;31⭐ &ensp;&ensp;&ensp;&ensp;3🍴 **[Elixir]** [exquery](https://github.com/rozap/exquery) - A library for parsing HTML and querying elements within.
-* &ensp;1187⭐ &ensp;&ensp;&ensp;99🍴 **[Elixir]** [floki](https://github.com/philss/floki) - A simple HTML parser that enables searching using CSS like selectors.
+* &ensp;1188⭐ &ensp;&ensp;&ensp;99🍴 **[Elixir]** [floki](https://github.com/philss/floki) - A simple HTML parser that enables searching using CSS like selectors.
 * &ensp;&ensp;145⭐ &ensp;&ensp;&ensp;38🍴 **[Elixir]** [html_sanitize_ex](https://github.com/rrrene/html_sanitize_ex) - HTML sanitizer for Elixir.
 * &ensp;&ensp;&ensp;28⭐ &ensp;&ensp;&ensp;&ensp;4🍴 **[C]** [modest_ex](https://github.com/f34nk/modest_ex) - A library to do pipeable transformations on html strings with CSS selectors, e.g. find(), prepend(), append(), replace() etc.
 * &ensp;&ensp;&ensp;13⭐ &ensp;&ensp;&ensp;&ensp;5🍴 **[HTML]** [myhtmlex](https://github.com/Overbryd/myhtmlex) - Elixir/Erlang bindings for lexborisov's myhtml.
@@ -895,7 +897,7 @@ There are [other sites with curated lists of elixir packages](#other-awesome-lis
 * &ensp;&ensp;157⭐ &ensp;&ensp;&ensp;28🍴 **[Elixir]** [instream](https://github.com/mneudert/instream) - InfluxDB driver for Elixir.
 * &ensp;&ensp;&ensp;&ensp;9⭐ &ensp;&ensp;&ensp;&ensp;2🍴 **[Elixir]** [instrumental](https://github.com/undeadlabs/instrumental-ex) - An Elixir client for [Instrumental](https://instrumentalapp.com/).
 * &ensp;&ensp;&ensp;64⭐ &ensp;&ensp;&ensp;19🍴 **[Elixir]** [newrelic.ex](https://github.com/romul/newrelic.ex) - Collects metrics from your Elixir/Phoenix application and sends them to [NewRelic](https://newrelic.com/).
-* &ensp;&ensp;249⭐ &ensp;&ensp;&ensp;51🍴 **[Erlang]** [prometheus](https://github.com/deadtrickster/prometheus.erl) - [Prometheus.io](https://prometheus.io) monitoring system and time series database client in Erlang.
+* &ensp;&ensp;248⭐ &ensp;&ensp;&ensp;51🍴 **[Erlang]** [prometheus](https://github.com/deadtrickster/prometheus.erl) - [Prometheus.io](https://prometheus.io) monitoring system and time series database client in Erlang.
 * &ensp;&ensp;&ensp;64⭐ &ensp;&ensp;&ensp;16🍴 **[Elixir]** [prometheus-ecto](https://github.com/deadtrickster/prometheus-ecto) - Ecto instrumenter for prometheus.ex.
 * &ensp;&ensp;&ensp;59⭐ &ensp;&ensp;&ensp;10🍴 **[Elixir]** [prometheus-phoenix](https://github.com/deadtrickster/prometheus-phoenix) - Phoenix instrumenter for prometheus.ex.
 * &ensp;&ensp;&ensp;44⭐ &ensp;&ensp;&ensp;19🍴 **[Elixir]** [prometheus-plugs](https://github.com/deadtrickster/prometheus-plugs) - Plugs instrumenters/exporter for prometheus.ex.
@@ -1161,7 +1163,7 @@ There are [other sites with curated lists of elixir packages](#other-awesome-lis
 * &ensp;&ensp;156⭐ &ensp;&ensp;&ensp;13🍴 **[Elixir]** [inquisitor](https://github.com/dockyard/inquisitor) - Composable query builder for Ecto.
 * &ensp;&ensp;&ensp;&ensp;8⭐ &ensp;&ensp;&ensp;&ensp;2🍴 **[Elixir]** [isn](https://github.com/Frost/isn) - Ecto types for the postgreSQL isn extension.
 * &ensp;&ensp;133⭐ &ensp;&ensp;&ensp;22🍴 **[Elixir]** [kalecto](https://github.com/lau/calecto) - Glue between Kalends and Ecto for saving dates, times and datetimes.
-* &ensp;&ensp;158⭐ &ensp;&ensp;&ensp;37🍴 **[Erlang]** [kst](https://github.com/synrc/kvs) - Erlang Abstract Term Database.
+* &ensp;&ensp;157⭐ &ensp;&ensp;&ensp;37🍴 **[Erlang]** [kst](https://github.com/synrc/kvs) - Erlang Abstract Term Database.
 * &ensp;&ensp;&ensp;&ensp;4⭐ &ensp;&ensp;&ensp;&ensp;0🍴 **[Elixir]** [level](https://github.com/gausby/level) - Level for Elixir implements various helper functions and data types for working with Googles Level data store.
 * &ensp;&ensp;256⭐ &ensp;&ensp;&ensp;95🍴 **[Elixir]** [mariaex](https://github.com/xerions/mariaex) - MariaDB/MySQL driver for Elixir.
 * &ensp;&ensp;524⭐ &ensp;&ensp;&ensp;10🍴 **[Elixir]** [memento](https://github.com/sheharyarn/memento) - Simple Mnesia Interface in Elixir.
@@ -1195,7 +1197,7 @@ There are [other sites with curated lists of elixir packages](#other-awesome-lis
 * &ensp;&ensp;205⭐ &ensp;&ensp;&ensp;23🍴 **[Elixir]** [triplex](https://github.com/ateliware/triplex) - Database multitenancy with postgres schemas for Elixir applications!
 * &ensp;&ensp;&ensp;56⭐ &ensp;&ensp;&ensp;19🍴 **[Elixir]** [triton](https://github.com/blitzstudios/triton) - Pure Elixir Cassandra ORM built on top of Xandra.
 * &ensp;&ensp;&ensp;&ensp;3⭐ &ensp;&ensp;&ensp;&ensp;1🍴 **[Elixir]** [udpflux](https://github.com/timbuchwaldt/udpflux) - An opinionated InfluxDB UDP only client.
-* &ensp;&ensp;201⭐ &ensp;&ensp;&ensp;28🍴 **[Elixir]** [xandra](https://github.com/lexhide/xandra) - Cassandra driver built natively in Elixir and focused on speed, simplicity, and robustness.
+* &ensp;&ensp;202⭐ &ensp;&ensp;&ensp;28🍴 **[Elixir]** [xandra](https://github.com/lexhide/xandra) - Cassandra driver built natively in Elixir and focused on speed, simplicity, and robustness.
 * &ensp;&ensp;&ensp;&ensp;8⭐ &ensp;&ensp;&ensp;&ensp;0🍴 **[Elixir]** [yar](https://github.com/dantswain/yar) - Yet another Redis client for Elixir.
 
 ## OTP
@@ -1634,7 +1636,7 @@ There are [other sites with curated lists of elixir packages](#other-awesome-lis
 * &ensp;&ensp;&ensp;&ensp;5⭐ &ensp;&ensp;&ensp;&ensp;0🍴 **[Elixir]** [dot-notes](https://github.com/whitfin/dot-notes-elixir) - Simple dot/bracket notation parsing/conversion for Maps/Lists.
 * &ensp;&ensp;&ensp;51⭐ &ensp;&ensp;&ensp;&ensp;3🍴 **[Elixir]** [dress](https://github.com/veelenga/dress) - Cli app that makes your stdout fancy.
 * &ensp;&ensp;494⭐ &ensp;&ensp;&ensp;33🍴 **[Erlang]** [erlang-history](https://github.com/ferd/erlang-history) - Hacks to add shell history to Erlang's shell.
-* &ensp;&ensp;&ensp;58⭐ &ensp;&ensp;&ensp;&ensp;9🍴 **[Erlang]** [erlsh](https://github.com/proger/erlsh) - Family of functions and ports involving interacting with the system shell, paths and external programs.
+* &ensp;&ensp;&ensp;57⭐ &ensp;&ensp;&ensp;&ensp;9🍴 **[Erlang]** [erlsh](https://github.com/proger/erlsh) - Family of functions and ports involving interacting with the system shell, paths and external programs.
 * &ensp;&ensp;198⭐ &ensp;&ensp;&ensp;86🍴 **[Erlang]** [erlware_commons](https://github.com/erlware/erlware_commons) - Additional standard library for Erlang.
 * &ensp;&ensp;&ensp;&ensp;2⭐ &ensp;&ensp;&ensp;&ensp;0🍴 **[Elixir]** [ex_progress](https://github.com/acj/ex_progress) - A library for tracking progress across many tasks and sub-tasks.
 * &ensp;&ensp;&ensp;&ensp;0⭐ &ensp;&ensp;&ensp;&ensp;2🍴 **[Elixir]** [exjprop](https://github.com/stocks29/exjprop) - Elixir library for reading Java properties files from various sources.
@@ -1725,7 +1727,7 @@ Various resources, such as books, websites and articles, for improving your Elix
 * [Programming Phoenix](https://pragprog.com/book/phoenix/programming-phoenix) - Definitive guide to build web applications with the Phoenix framework by Chris McCord, JosÃ© Valim and Bruce Tate (2015).
 * [The Beam Book](https://happi.github.io/theBeamBook/) - A description of the Erlang Runtime System ERTS and the virtual Machine BEAM.
 * [The Little Elixir & OTP Guidebook](https://www.manning.com/books/the-little-elixir-and-otp-guidebook) - A book for learning Elixir and OTP through small to medium-sized projects by Benjamin Tan Wei Hao (2014).
-* [Ãtudes for Elixir](http://chimera.labs.oreilly.com/books/1234000001642) - A collection of exercises to program in Elixir by J. David Eisenberg (2013) ([Github Repo](https://github.com/oreillymedia/etudes-for-elixir)). - :fire: :x: Broken link
+* [Ãtudes for Elixir](http://chimera.labs.oreilly.com/books/1234000001642) - A collection of exercises to program in Elixir by J. David Eisenberg (2013) ([Github Repo](https://github.com/oreillymedia/etudes-for-elixir)).
 
 ## Cheat Sheets
 *Useful Elixir-related cheat sheets.*

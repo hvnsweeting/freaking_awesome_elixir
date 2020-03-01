@@ -78,23 +78,28 @@ defmodule FAE do
   """
   def transform(line) do
     url = markdown_to_url(line)
-    api_url = url_to_api(url)
-    # call API, get stargazers_count forks_count language
-    response = get(api_url)
 
-    case response do
-      {:ok, {{'HTTP/1.1', 404, 'Not Found'}, _, _}} ->
-        "#{line} - :fire: :x: Broken link"
+    if String.contains?(url, "//github.com/") do
+      api_url = url_to_api(url)
+      # call API, get stargazers_count forks_count language
+      response = get(api_url)
 
-      {:ok, {{'HTTP/1.1', 200, 'OK'}, _headers, body}} ->
-        {stargazers_count, forks_count, language} = parse_stats(body)
+      case response do
+        {:ok, {{'HTTP/1.1', 404, 'Not Found'}, _, _}} ->
+          "#{line} - :fire: :x: Broken link"
 
-        String.replace_prefix(
-          line,
-          "* ",
-          "* #{pad(stargazers_count)}⭐ #{pad(forks_count)}🍴 **[#{language}]** "
-        )
-        |> IO.inspect()
+        {:ok, {{'HTTP/1.1', 200, 'OK'}, _headers, body}} ->
+          {stargazers_count, forks_count, language} = parse_stats(body)
+
+          String.replace_prefix(
+            line,
+            "* ",
+            "* #{pad(stargazers_count)}⭐ #{pad(forks_count)}🍴 **[#{language}]** "
+          )
+          |> IO.inspect()
+      end
+    else
+      line
     end
   end
 
@@ -119,7 +124,7 @@ defmodule FAE do
       input
       |> String.split("\n")
       |> Enum.map(fn line ->
-        if String.starts_with?(line, "* ") && String.contains?(line, "//github.com/") do
+        if String.starts_with?(line, "* ") do
           transform(line)
         else
           line
@@ -130,6 +135,8 @@ defmodule FAE do
 
     header =
       "# Freaking Awesome Elixir ![Elixir CI](https://github.com/hvnsweeting/freaking_awesome_elixir/workflows/Elixir%20CI/badge.svg)
+
+Data updated at #{DateTime.to_iso8601(DateTime.utc_now())}
 
 A curated list with Github stars and forks stats based on awesome [h4cc/awesome-elixir](https://github.com/h4cc/awesome-elixir).
 
