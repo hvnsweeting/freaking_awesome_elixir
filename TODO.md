@@ -1,6 +1,4 @@
 # TODO
-- Add specs
-- Use dyalizer
 - Allow custom map for link that use homepage than github
 - Support GitLab
 - Speed up by concurrency
