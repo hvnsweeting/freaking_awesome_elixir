@@ -1,5 +1,8 @@
-all:
+all: lint
 	mix fae
+
+lint:
+	mix dialyzer
 
 pydeps:
 	pip install pip-tools==4.5.1
