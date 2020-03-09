@@ -1,5 +1,5 @@
 defmodule FAE do
-  # @spec download_source(String.t) :: nil
+  @spec download_source(String.t()) :: :ok
   def download_source(outfile \\ "README.md.orig") do
     # Application.ensure_all_started(:inets)
     # Application.ensure_all_started(:ssl)
@@ -12,7 +12,7 @@ defmodule FAE do
       )
 
     readme = List.to_string(body)
-    File.write(outfile, readme)
+    File.write!(outfile, readme)
   end
 
   @spec markdown_to_url(String.t()) :: String.t()
@@ -37,6 +37,7 @@ defmodule FAE do
     "https://api.github.com/repos/#{path}"
   end
 
+  # TODO @spec get(String.t()) :: {atom, {{String.t, integer, String.t}, atom, atom}}
   def get(api_url) do
     personal_access_token = System.get_env("GITHUB_ACCESS_TOKEN")
 
@@ -120,6 +121,7 @@ defmodule FAE do
     end
   end
 
+  @spec main() :: :ok
   def main() do
     IO.puts("Downloading latest Awesome Elixir Raw MarkDown")
     download_source("README.md.orig")
@@ -179,6 +181,9 @@ A curated list with Github stars and forks stats based on awesome [h4cc/awesome-
 
 To contribute new package to the list, please send a request to [h4cc/awesome-elixir](https://github.com/h4cc/awesome-elixir)"
 
-    File.write("README.md", header <> "\n## Top 20 packages\n" <> top20_pragraph <> "\n\n" <> out)
+    File.write!(
+      "README.md",
+      header <> "\n## Top 20 packages\n" <> top20_pragraph <> "\n\n" <> out
+    )
   end
 end
