@@ -22,4 +22,9 @@ defmodule FreakingAwesomeElixirTest do
     assert FAE.url_to_api("https://github.com/elixir-lang/elixir/wiki") ==
              "https://api.github.com/repos/elixir-lang/elixir"
   end
+
+  test "gitlab URL to API" do
+    assert FAE.gitlab_url_to_api("https://gitlab.com/cizen/cizen") ==
+             "https://gitlab.com/api/v4/projects/cizen%2Fcizen"
+  end
 end
