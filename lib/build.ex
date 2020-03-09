@@ -52,7 +52,7 @@ defmodule FAE do
         nil ->
           [{'User-Agent', 'Erlang/httpc'}]
 
-        token ->
+        _ ->
           [
             {'User-Agent', 'Erlang/httpc'},
             authen_header
@@ -103,15 +103,16 @@ defmodule FAE do
     stars = Regex.named_captures(~r/\"stargazers_count\":(?<count>\d+)/, body)
     forks = Regex.named_captures(~r/\"forks_count\":(?<count>\d+)/, body)
     lang = Regex.named_captures(~r/\"language\":"(?<name>\w+)"/, body)
-    {String.to_integer(stars["count"]), String.to_integer(forks["count"]), lang["name"]}
+    langname = lang["name"]
+    {String.to_integer(stars["count"]), String.to_integer(forks["count"]), langname}
   end
 
   def parse_gitlab_stats(body) do
     body = List.to_string(body)
     stars = Regex.named_captures(~r/\"star_count\":(?<count>\d+)/, body)
     forks = Regex.named_captures(~r/\"forks_count\":(?<count>\d+)/, body)
-    lang = nil
-    {String.to_integer(stars["count"]), String.to_integer(forks["count"]), lang["name"]}
+    # TODO find way to get language, it shows on GitLab Web
+    {String.to_integer(stars["count"]), String.to_integer(forks["count"]), nil}
   end
 
   @doc """
@@ -151,7 +152,7 @@ defmodule FAE do
             %{stats: false, line: line}
 
           {:ok, {{'HTTP/1.1', 200, 'OK'}, _headers, body}} ->
-            {stargazers_count, forks_count, language} = parse_gitlab_stats(body)
+            {stargazers_count, forks_count, nil} = parse_gitlab_stats(body)
 
             %{
               stats: true,
@@ -172,6 +173,18 @@ defmodule FAE do
     case stats do
       %{stats: false} ->
         "#{line} - :fire: :x: Broken link"
+
+      %{
+        stats: true,
+        stargazers_count: stargazers_count,
+        forks_count: forks_count,
+        language: nil
+      } ->
+        String.replace_prefix(
+          line,
+          "* ",
+          "* #{pad(stargazers_count)}⭐ #{pad(forks_count)}🍴 "
+        )
 
       %{
         stats: true,
