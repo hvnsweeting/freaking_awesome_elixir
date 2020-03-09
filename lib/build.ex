@@ -37,25 +37,64 @@ defmodule FAE do
     "https://api.github.com/repos/#{path}"
   end
 
-  # TODO @spec get(String.t()) :: {atom, {{String.t, integer, String.t}, atom, atom}}
-  def get(api_url) do
-    personal_access_token = System.get_env("GITHUB_ACCESS_TOKEN")
+  @spec gitlab_url_to_api(String.t()) :: String.t()
+  def gitlab_url_to_api(url) do
+    %URI{scheme: _scheme, host: _host, path: path} = URI.parse(url)
+    path = path |> String.split("/", trim: true) |> Enum.take(2) |> Enum.join("/")
+    "https://gitlab.com/api/v4/projects/#{URI.encode_www_form(path)}"
+  end
+
+  def http_get(api_url, authen_header \\ nil) do
+    IO.inspect(api_url, label: "API URL")
 
     headers =
-      case personal_access_token do
+      case authen_header do
         nil ->
-          IO.puts("NO GITHUB_ACCESS_TOKEN set, would fail after a while due to API limit")
           [{'User-Agent', 'Erlang/httpc'}]
 
         token ->
           [
             {'User-Agent', 'Erlang/httpc'},
-            {'Authorization', 'bearer ' ++ String.to_charlist(token)}
+            authen_header
           ]
       end
 
-    IO.inspect(api_url, label: "API URL")
     :httpc.request(:get, {String.to_charlist(api_url), headers}, [], [])
+  end
+
+  def query_gitlab_api(api_url) do
+    # there are only 3 GitLab link in README.md, thus need GITLAB_ACCESS_TOKEN
+    # coz we not going to reach limit any time soon
+    personal_access_token = System.get_env("GITLAB_ACCESS_TOKEN")
+
+    authen_header =
+      case personal_access_token do
+        nil ->
+          nil
+
+        token ->
+          {'Private-Token', String.to_charlist(token)}
+      end
+
+    http_get(api_url, authen_header)
+  end
+
+  # TODO @spec query_github_api(String.t()) :: {atom, {{String.t, integer, String.t}, atom, atom}}
+  def query_github_api(api_url) do
+    personal_access_token = System.get_env("GITHUB_ACCESS_TOKEN")
+
+    authen_header =
+      case personal_access_token do
+        nil ->
+          IO.puts("NO GITHUB_ACCESS_TOKEN set, would fail after a while due to API limit")
+          nil
+
+        token ->
+          nil
+          {'Authorization', 'bearer ' ++ String.to_charlist(token)}
+      end
+
+    http_get(api_url, authen_header)
   end
 
   @spec parse_stats(list) :: {integer, integer, String.t()}
@@ -67,6 +106,14 @@ defmodule FAE do
     {String.to_integer(stars["count"]), String.to_integer(forks["count"]), lang["name"]}
   end
 
+  def parse_gitlab_stats(body) do
+    body = List.to_string(body)
+    stars = Regex.named_captures(~r/\"star_count\":(?<count>\d+)/, body)
+    forks = Regex.named_captures(~r/\"forks_count\":(?<count>\d+)/, body)
+    lang = nil
+    {String.to_integer(stars["count"]), String.to_integer(forks["count"]), lang["name"]}
+  end
+
   @doc """
   extracts stats from a MarkDown syntax line
   """
@@ -74,27 +121,49 @@ defmodule FAE do
   def extract_stats(line) do
     url = markdown_to_url(line)
 
-    if String.contains?(url, "//github.com/") do
-      api_url = url_to_api(url)
-      response = get(api_url)
+    cond do
+      String.contains?(url, "//github.com/") ->
+        api_url = url_to_api(url)
+        response = query_github_api(api_url)
 
-      case response do
-        {:ok, {{'HTTP/1.1', 404, 'Not Found'}, _, _}} ->
-          %{stats: false, line: line}
+        case response do
+          {:ok, {{'HTTP/1.1', 404, 'Not Found'}, _, _}} ->
+            %{stats: false, line: line}
 
-        {:ok, {{'HTTP/1.1', 200, 'OK'}, _headers, body}} ->
-          {stargazers_count, forks_count, language} = parse_stats(body)
+          {:ok, {{'HTTP/1.1', 200, 'OK'}, _headers, body}} ->
+            {stargazers_count, forks_count, language} = parse_stats(body)
 
-          %{
-            stats: true,
-            line: line,
-            stargazers_count: stargazers_count,
-            forks_count: forks_count,
-            language: language
-          }
-      end
-    else
-      %{stats: nil, line: line}
+            %{
+              stats: true,
+              line: line,
+              stargazers_count: stargazers_count,
+              forks_count: forks_count,
+              language: language
+            }
+        end
+
+      String.contains?(url, "//gitlab.com/") ->
+        api_url = gitlab_url_to_api(url)
+        response = query_gitlab_api(api_url)
+
+        case response do
+          {:ok, {{'HTTP/1.1', 404, 'Not Found'}, _, _}} ->
+            %{stats: false, line: line}
+
+          {:ok, {{'HTTP/1.1', 200, 'OK'}, _headers, body}} ->
+            {stargazers_count, forks_count, language} = parse_gitlab_stats(body)
+
+            %{
+              stats: true,
+              line: line,
+              stargazers_count: stargazers_count,
+              forks_count: forks_count,
+              language: nil
+            }
+        end
+
+      true ->
+        %{stats: nil, line: line}
     end
   end
 
