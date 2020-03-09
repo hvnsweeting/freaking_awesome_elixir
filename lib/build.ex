@@ -1,4 +1,5 @@
 defmodule FAE do
+  @spec download_source(String.t()) :: :ok
   def download_source(outfile \\ "README.md.orig") do
     # Application.ensure_all_started(:inets)
     # Application.ensure_all_started(:ssl)
@@ -11,14 +12,16 @@ defmodule FAE do
       )
 
     readme = List.to_string(body)
-    File.write(outfile, readme)
+    File.write!(outfile, readme)
   end
 
+  @spec markdown_to_url(String.t()) :: String.t()
   def markdown_to_url(line) do
     %{"url" => url} = Regex.named_captures(~r/\((?<url>.*?)\)/, line)
     url
   end
 
+  @spec pad(integer, integer) :: String.t()
   def pad(number, count \\ 5) do
     # uses ensp instead of nbsp
     number |> Integer.to_string() |> String.pad_leading(count) |> String.replace(" ", "&ensp;")
@@ -27,12 +30,14 @@ defmodule FAE do
   @doc """
   Convert given GitHub URL to API
   """
+  @spec url_to_api(String.t()) :: String.t()
   def url_to_api(url) do
     %URI{scheme: _scheme, host: _host, path: path} = URI.parse(url)
     path = path |> String.split("/", trim: true) |> Enum.take(2) |> Enum.join("/")
     "https://api.github.com/repos/#{path}"
   end
 
+  # TODO @spec get(String.t()) :: {atom, {{String.t, integer, String.t}, atom, atom}}
   def get(api_url) do
     personal_access_token = System.get_env("GITHUB_ACCESS_TOKEN")
 
@@ -53,18 +58,7 @@ defmodule FAE do
     :httpc.request(:get, {String.to_charlist(api_url), headers}, [], [])
   end
 
-  def parse_stats_json(body) do
-    {:ok, data} = Jason.decode(List.to_string(body))
-
-    %{
-      "stargazers_count" => stargazers_count,
-      "forks_count" => forks_count,
-      "language" => language
-    } = data
-
-    {stargazers_count, forks_count, language}
-  end
-
+  @spec parse_stats(list) :: {integer, integer, String.t()}
   def parse_stats(body) do
     body = List.to_string(body)
     stars = Regex.named_captures(~r/\"stargazers_count\":(?<count>\d+)/, body)
@@ -74,9 +68,10 @@ defmodule FAE do
   end
 
   @doc """
-  tranforms a MD syntax line to new version with stars and forks
+  extracts stats from a MarkDown syntax line
   """
-  def transform(line) do
+  @spec extract_stats(String.t()) :: map
+  def extract_stats(line) do
     url = markdown_to_url(line)
 
     if String.contains?(url, "//github.com/") do
@@ -103,6 +98,7 @@ defmodule FAE do
     end
   end
 
+  @spec format_stats(String.t(), map) :: String.t()
   def format_stats(line, stats) do
     case stats do
       %{stats: false} ->
@@ -125,12 +121,13 @@ defmodule FAE do
     end
   end
 
+  @spec main() :: :ok
   def main() do
     IO.puts("Downloading latest Awesome Elixir Raw MarkDown")
     download_source("README.md.orig")
     input = File.read!("README.md.orig")
 
-    sample = """
+    _sample = """
     ## YAML
     *Libraries and implementations working with YAML.*
 
@@ -140,14 +137,14 @@ defmodule FAE do
     * [yomel](https://github.com/Joe-noh/yomel) - libyaml interface for Elixir.
     """
 
-    # input = sample
+    # input = _sample
 
-    out =
+    {stats, lines} =
       input
       |> String.split("\n")
       |> Enum.map(fn line ->
         if String.starts_with?(line, "* ") do
-          transform(line)
+          extract_stats(line)
         else
           %{line: line, stats: nil}
         end
@@ -164,8 +161,6 @@ defmodule FAE do
             {Map.put(stats, line, item), [format_stats(line, item) | lines]}
         end
       end)
-
-    {stats, lines} = out
 
     top20 =
       Map.to_list(stats)
@@ -186,6 +181,9 @@ A curated list with Github stars and forks stats based on awesome [h4cc/awesome-
 
 To contribute new package to the list, please send a request to [h4cc/awesome-elixir](https://github.com/h4cc/awesome-elixir)"
 
-    File.write("README.md", header <> "\n## Top 20 packages\n" <> top20_pragraph <> "\n\n" <> out)
+    File.write!(
+      "README.md",
+      header <> "\n## Top 20 packages\n" <> top20_pragraph <> "\n\n" <> out
+    )
   end
 end
