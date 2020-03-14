@@ -224,14 +224,14 @@ defmodule FAE do
     {stats, lines} =
       input
       |> String.split("\n")
-      |> Enum.map(fn line ->
+      |> Task.async_stream(fn line ->
         if String.starts_with?(line, "* ") do
           extract_stats(line)
         else
           %{line: line, stats: nil}
         end
       end)
-      |> Enum.reduce({%{}, []}, fn item, {stats, lines} ->
+      |> Enum.reduce({%{}, []}, fn {:ok, item}, {stats, lines} ->
         case item do
           %{stats: nil, line: line} ->
             {stats, [line | lines]}
