@@ -225,7 +225,8 @@ defmodule FAE do
       input
       |> String.split("\n")
       |> Task.async_stream(fn line ->
-        if String.starts_with?(line, "* ") do
+        line = String.trim(line)
+        if String.starts_with?(line, "* [") do
           extract_stats(line)
         else
           %{line: line, stats: nil}
